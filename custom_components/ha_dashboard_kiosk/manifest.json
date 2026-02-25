@@ -1,0 +1,20 @@
+{
+  "domain": "ha_dashboard_kiosk",
+  "name": "HA Dashboard Kiosk",
+  "version": "0.0.1",
+  "documentation": "https://github.com/zamartz/ha-dashboard-kiosk-hacs",
+  "issue_tracker": "https://github.com/zamartz/ha-dashboard-kiosk-hacs/issues",
+  "requirements": [],
+  "codeowners": [
+    "@zamartz"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "webhook"
+  ],
+  "iot_class": "local_push",
+  "integration_type": "hub",
+  "loggers": [
+    "custom_components.ha_dashboard_kiosk"
+  ]
+}
