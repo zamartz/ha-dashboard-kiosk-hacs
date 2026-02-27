@@ -1,4 +1,4 @@
-"""Config flow for HA Dashboard Kiosk."""
+"""Config flow for Custom Kiosk Events."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ from .const import (
 
 
 class HADashboardKioskConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for HA Dashboard Kiosk."""
+    """Handle a config flow for Custom Kiosk Events."""
 
     VERSION = 1
 

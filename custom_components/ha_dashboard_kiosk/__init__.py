@@ -1,4 +1,4 @@
-"""HA Dashboard Kiosk integration.
+"""Custom Kiosk Events integration.
 
 Receives events from the HA Dashboard Kiosk app (via webhook),
 updates entities, and optionally fires Home Assistant events so
@@ -43,7 +43,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up HA Dashboard Kiosk from a config entry."""
+    """Set up Custom Kiosk Events from a config entry."""
     hass.data.setdefault(DOMAIN, {})
 
     webhook_id: str = entry.data[CONF_WEBHOOK_ID]

@@ -1,4 +1,4 @@
-"""Constants for the HA Dashboard Kiosk integration."""
+"""Constants for the Custom Kiosk Events integration."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ CONF_FIRE_EVENTS = "fire_events"
 CONF_NOTIFY_ON_ERROR = "notify_on_error"
 CONF_NOTIFY_ADMIN_OPEN = "notify_on_admin_open"
 
-DEFAULT_NAME = "HA Dashboard Kiosk"
+DEFAULT_NAME = "Custom Kiosk Events"
 
 # Matches old blueprint default webhook id so the app
 # does not need to be reconfigured.

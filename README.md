@@ -1,17 +1,14 @@
-# HA Dashboard Kiosk
+# Custom Kiosk Events
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Integration-239B56.svg?style=flat-square)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/zamartz/ha-dashboard-kiosk-hacs.svg?style=flat-square)](https://github.com/zamartz/ha-dashboard-kiosk-hacs/releases)
 
-Home Assistant custom integration for the **HA Dashboard Kiosk** iPad app. Receives kiosk events via webhook or REST, exposes sensors and counters, and fires events for automations—no manual blueprints or helpers required.
+Home Assistant custom integration that extends the **HA Dashboard Kiosk** iOS app with more features in HA: webhook/REST event ingestion, sensors and counters, and events for automations. Use this HACS integration together with the app—no manual blueprints or helpers required.
 
 **App & documentation:** [hacustomkiosk.com](https://hacustomkiosk.com) — iOS app download, setup guide, and full docs.
 
-| Screenshot (placeholder) |
+| ![HA Dashboard Kiosk on iPad](images/ha-dashboard-kiosk-ipad-background-2000xfull.jpg) |
 |--------------------------|
-| ![HA Dashboard Kiosk screenshot](https://placehold.co/800x400/1a1a2e/eee?text=HA+Dashboard+Kiosk+Screenshot&font=roboto) |
-
-Replace the image URL above with your own screenshot (e.g. from the app or HA entities).
 
 ---
 
@@ -22,9 +19,9 @@ Replace the image URL above with your own screenshot (e.g. from the app or HA en
 1. Open **HACS → Integrations**.
 2. Click the menu (⋮) → **Custom repositories**.
 3. Add this repository URL as type **Integration**.
-4. Search for **HA Dashboard Kiosk** and install.
+4. Search for **Custom Kiosk Events** and install.
 5. Restart Home Assistant.
-6. Go to **Settings → Devices & services** → **Add Integration** → search **HA Dashboard Kiosk**.
+6. Go to **Settings → Devices & services** → **Add Integration** → search **Custom Kiosk Events**.
 
 Follow the config flow to set a name, webhook behavior, and optional notifications (error / admin open).
 
@@ -54,7 +51,7 @@ Follow the config flow to set a name, webhook behavior, and optional notificatio
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| **Name** | HA Dashboard Kiosk | Friendly name for the integration and entity names. |
+| **Name** | Custom Kiosk Events | Friendly name for the integration and entity names. |
 | **Fire events** | On | Fire `kiosk_event_received` so automations can react. |
 | **Notify on error** | On | Send a persistent notification when the app reports an error. |
 | **Notify on admin open** | Off | Send a notification when someone opens the admin panel on the kiosk. |
@@ -78,29 +75,21 @@ Full app setup and “Send events to HA” configuration: [hacustomkiosk.com](ht
 
 ---
 
-## Dashboard URL parameters (app kiosk mode)
+## Kiosk mode (app + dashboard URL)
 
-The **HA Dashboard Kiosk** app can hide its own navigation based on query parameters in the dashboard URL (similar in spirit to [kiosk-mode](https://github.com/NemesisRE/kiosk-mode)). Configure the dashboard URL in the app; if it includes any of these params, the app applies the behavior:
+Used together with the **HA Dashboard Kiosk** iOS app, the dashboard URL supports **`?kiosk-mode`** so the app can present a kiosk-style view (e.g. hide navigation). Configure the dashboard URL in the app; see [hacustomkiosk.com](https://hacustomkiosk.com) for details.
 
-| Param | Behavior |
-|-------|----------|
-| `?dash_kiosk` | Hide header + sidebar |
-| `?dash_kiosk_hide_header` | Hide header only |
-| `?dash_kiosk_hide_sidebar` | Hide sidebar (and swipe) |
-| `?dash_kiosk_hide_overflow` | Hide top-right menu |
-| `?dash_kiosk_hide_menubutton` | Hide sidebar menu icon |
-
-Handled entirely by the app; the integration does not need to be configured for this.
+For more URL-based hiding options in the browser (e.g. header/sidebar), see [kiosk-mode](https://github.com/NemesisRE/kiosk-mode) (Lovelace frontend, FYI).
 
 ---
 
 ## Related
 
-- [HA Dashboard Kiosk – App & docs](https://hacustomkiosk.com)
-- [NemesisRE/kiosk-mode](https://github.com/NemesisRE/kiosk-mode) — Lovelace frontend that hides header/sidebar via URL params (browser).
+- [HA Dashboard Kiosk (iOS app) & docs](https://hacustomkiosk.com)
+- [kiosk-mode](https://github.com/NemesisRE/kiosk-mode) — Lovelace frontend for hiding header/sidebar via URL params in the browser (FYI).
 
 ---
 
 ## Credit
 
-This integration replaces the manual blueprint + counter-helpers setup. Kiosk URL parameter behavior is inspired by [kiosk-mode](https://github.com/NemesisRE/kiosk-mode) (MIT).
+This integration replaces the manual blueprint + counter-helpers setup.

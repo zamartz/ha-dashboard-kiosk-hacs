@@ -1,4 +1,4 @@
-"""Sensors for HA Dashboard Kiosk."""
+"""Sensors for Custom Kiosk Events."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 
-from homeassistant.components.sensor import SensorEntity
+from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_DEVICE_ID
 from homeassistant.core import Event, HomeAssistant, callback
@@ -184,6 +184,8 @@ class KioskTotalEventsSensor(KioskBaseSensor):
     """Sensor counting all kiosk events received."""
 
     _attr_icon = "mdi:counter"
+    _attr_state_class = SensorStateClass.TOTAL_INCREASING
+    _attr_native_unit_of_measurement = "events"
 
     def __init__(self, entry: ConfigEntry, data: KioskSensorData) -> None:
         super().__init__(entry)
@@ -215,6 +217,8 @@ class KioskEventCounterSensor(KioskBaseSensor):
         self._attr_unique_id = f"{entry.entry_id}_{event_name}_count"
         self._attr_name = friendly_name
         self._attr_icon = icon
+        self._attr_state_class = SensorStateClass.TOTAL_INCREASING
+        self._attr_native_unit_of_measurement = "events"
 
     @property
     def native_value(self) -> int:
