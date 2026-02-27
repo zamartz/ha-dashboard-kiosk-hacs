@@ -1,6 +1,6 @@
 """Custom Kiosk Events integration.
 
-Receives events from the HA Dashboard Kiosk app (via webhook),
+Receives events from the Custom Kiosk Dashboard iOS app (via webhook),
 updates entities, and optionally fires Home Assistant events so
 you can build your own automations and dashboards.
 """
