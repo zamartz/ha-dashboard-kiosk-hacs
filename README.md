@@ -10,6 +10,11 @@ Home Assistant custom integration that extends the **HA Dashboard Kiosk** iOS ap
 | ![HA Dashboard Kiosk on iPad](images/ha-dashboard-kiosk-ipad-background-2000xfull.jpg) |
 |--------------------------|
 
+| ![Event counts in HA cards](images/ha-dashboard-kiosk-event-counts-2000xfull.jpg) |
+|---------------------------------------------|
+
+The second screenshot shows example **Entities**, **Distribution**, **History graph**, and **Statistics graph** cards using the event counters provided by this integration with default Home Assistant styling.
+
 ---
 
 ## Installation

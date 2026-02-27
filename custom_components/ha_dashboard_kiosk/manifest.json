@@ -1,7 +1,7 @@
 {
   "domain": "ha_dashboard_kiosk",
   "name": "Custom Kiosk Events",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "documentation": "https://github.com/zamartz/ha-dashboard-kiosk-hacs",
   "issue_tracker": "https://github.com/zamartz/ha-dashboard-kiosk-hacs/issues",
   "requirements": [],
