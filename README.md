@@ -48,8 +48,8 @@ Follow the config flow to set a name, webhook behavior, and optional notificatio
 | Feature | Description |
 |--------|-------------|
 | **Webhook / REST** | Receives events from the app at `/api/webhook/ha-dashboard-kiosk-wh` or via `ha_dashboard_kiosk` REST events. |
-| **Sensors** | Last event, total events, and per-type counters (idle start/end, fade start/end, admin open/close, error). |
-| **Events** | Fires `kiosk_event_received` with `event`, `timestamp`, `idle_reason`, `error_type` for your automations. |
+| **Sensors** | Last event (with `device_id` and `device_name` attributes), total events, and per-type counters (idle start/end, fade start/end, admin open/close, error). |
+| **Events** | Fires `kiosk_event_received` with `event`, `timestamp`, `idle_reason`, `error_type`, `device_id`, and `device_name` for your automations. |
 | **Notifications** | Optional persistent notifications when the admin panel is opened or when an error is reported. |
 | **Logbook** | Kiosk events are logged for history and debugging. |
 
@@ -70,7 +70,7 @@ Follow the config flow to set a name, webhook behavior, and optional notificatio
 
 After setup you get entities such as:
 
-- **Last Event** — last kiosk event type (and device).
+- **Last Event** — last kiosk event type and device, with attributes for `device_id`, `device_name`, and `last_event_time`.
 - **Total Events** — count of all events received.
 - **Idle Start / Idle End / Fade Start / Fade End / Admin Open / Admin Close / Error** — per-type counters.
 
