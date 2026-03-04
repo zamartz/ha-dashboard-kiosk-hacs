@@ -33,6 +33,7 @@ class KioskSensorData:
 
     last_event_type: str | None = None
     last_event_device_id: str | None = None
+    last_event_device_name: str | None = None
     last_event_time: datetime | None = None
     total_events: int = 0
     counts: dict[str, int] | None = None
@@ -124,6 +125,7 @@ async def async_setup_entry(
 
         data.last_event_type = evt
         data.last_event_device_id = payload.get("device_id")
+        data.last_event_device_name = payload.get("device_name")
         data.last_event_time = datetime.utcnow()
         data.total_events += 1
 
@@ -175,6 +177,8 @@ class KioskLastEventSensor(KioskBaseSensor):
         attrs: dict[str, Any] = {}
         if self._data.last_event_device_id:
             attrs[ATTR_DEVICE_ID] = self._data.last_event_device_id
+        if self._data.last_event_device_name:
+            attrs["device_name"] = self._data.last_event_device_name
         if self._data.last_event_time:
             attrs["last_event_time"] = self._data.last_event_time.isoformat()
         return attrs

@@ -58,6 +58,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         idle_reason: str = str(payload.get("idle_reason") or "")
         error_type: str = str(payload.get("error_type") or "")
         device_id: str | None = payload.get("device_id")
+        device_name: str | None = payload.get("device_name")
 
         # Fire kiosk_event_received so existing automations can keep working.
         hass.bus.async_fire(
@@ -70,6 +71,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 "entry_id": entry.entry_id,
                 "webhook_id": webhook_id,
                 "device_id": device_id,
+                "device_name": device_name,
             },
         )
 
@@ -135,6 +137,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                     "idle_reason": payload.get("idle_reason"),
                     "error_type": payload.get("error_type"),
                     "device_id": device_id,
+                    "device_name": payload.get("device_name"),
                 }
             )
 
@@ -162,6 +165,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 "idle_reason": data.get("idle_reason"),
                 "error_type": data.get("error_type"),
                 "device_id": data.get("device_id"),
+                "device_name": data.get("device_name"),
             }
         )
 
